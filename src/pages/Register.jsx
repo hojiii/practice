@@ -5,6 +5,7 @@ import Space from "../elem/Space";
 import Flex from "../elem/Flex";
 import Button from "../components/Button";
 import { useNavigate } from "react-router-dom";
+import { apis } from "../shared/axios";
 
 const Register = () => {
   const navi = useNavigate();
@@ -23,7 +24,7 @@ const Register = () => {
   const submitButtonHandler = (event) => {
     event.preventDefault();
     // 서버에 보내기 (POST 요청 나중에 작업)
-    console.log(user);
+    apis.post("/register", user);
   };
 
   return (
