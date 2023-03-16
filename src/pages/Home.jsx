@@ -9,19 +9,19 @@ const Home = () => {
   const navi = useNavigate();
   const user = useSelector((state) => state);
 
-  const checkToken = async () => {
-    const token = cookies.get("token");
-    try {
-      await apis.get("/user", {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
-    } catch (e) {
-      // alert("비정상적인 접근입니다.");
-      navi("/");
-    }
-  };
+  // const checkToken = async () => {
+  //   const token = cookies.get("token");
+  //   try {
+  //     await apis.get("/user", {
+  //       headers: {
+  //         authorization: `Bearer ${token}`,
+  //       },
+  //     });
+  //   } catch (e) {
+  //     alert("비정상적인 접근입니다.");
+  //     navi("/");
+  //   }
+  // };
 
   useEffect(() => {
     const token = cookies.get("token");
@@ -29,7 +29,7 @@ const Home = () => {
       navi("/");
     }
 
-    checkToken();
+    // checkToken();
   }, []);
 
   return (
